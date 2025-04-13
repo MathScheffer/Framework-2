@@ -1,0 +1,15 @@
+<p>form-produtos works!</p>
+
+<div>
+  <label for="nome">NOME:</label>
+  <input type="text" [(ngModel)]="produto.nome" id="nome">
+  <br>
+  <label for="preco">PREÇO:</label>
+  <input type="number" [(ngModel)]="produto.preco" id="preco">
+
+  <button (click)="cadastrarProduto()">Cadastrar</button>
+</div>
+
+<div>
+  <p>{{produto | json}}</p>
+</div>
