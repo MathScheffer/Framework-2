@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Produto } from '../produto';
+import { ProdutoService } from '../produto.service';
 
 @Component({
   selector: 'app-list-card-produtos',
@@ -7,5 +9,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './list-card-produtos.component.css'
 })
 export class ListCardProdutosComponent {
-  @Input() listaProdutos: any[] = []
+/*   @Input()  */listaProdutos: Produto[] = [];
+  constructor(private produtoService: ProdutoService){
+    this.listaProdutos = produtoService.listar();
+  }
 }

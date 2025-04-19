@@ -3,8 +3,13 @@
   <div class="row">
     <div class="col col-xl-3 col-lh-4 col-sm-6 col-12" *ngFor="let prod of listaProdutos">
       <app-card-produto class="p-3">
-        <h3 class="card-title">{{prod.nome}}</h3>
-        <p class="card-text">R$ {{prod.preco}}</p>
+        <img class="card-img" src="/imagem.png" alt="imagem do produto" titulo>
+
+        <div conteudo>
+          <h3 class="card-title">{{prod.nome}}</h3>
+          <p class="card-text">R$ {{prod.preco}}</p>
+          <p>Descrição: Um produto muito bom</p>
+        </div>
       </app-card-produto>
     </div>
   </div>

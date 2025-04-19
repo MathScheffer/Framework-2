@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Produto } from '../produto';
+import { ProdutoService } from '../produto.service';
 
 @Component({
   selector: 'app-tabela-produtos',
@@ -7,5 +9,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './tabela-produtos.component.css'
 })
 export class TabelaProdutosComponent {
-  @Input() listaProdutos: any[] = [];
+  /* @Input() listaProdutos: any[] = []; */
+  listaProdutos: Produto[] = []
+
+  constructor(private produtoService: ProdutoService){
+    this.listaProdutos = produtoService.listar();
+  }
 }

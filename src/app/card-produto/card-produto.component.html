@@ -1,8 +1,9 @@
 <div class="card">
-  <img class="card-img" src="/imagem.png" alt="imagem do produto">
+  <!-- <img class="card-img" src="/imagem.png" alt="imagem do produto"> -->
+  <ng-content select="[titulo]"></ng-content>
   <div class="card-body">
     <!-- <h3 class="card-title">{{produto.nome}}</h3>
     <p class="card-text">R$ {{produto.preco}}</p> -->
-    <ng-content></ng-content>
+    <ng-content select="[conteudo]"></ng-content>
   </div>
 </div>
