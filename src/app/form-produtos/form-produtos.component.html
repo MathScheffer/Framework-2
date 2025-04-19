@@ -1,15 +1,24 @@
-<p>form-produtos works!</p>
+<div class="container">
+  <h3>form-produtos works!</h3>
+  <div>
+    <div class="mb-3">
+      <label for="id" class="form-label">ID:</label>
+      <input type="number" [(ngModel)]="produto.id" id="id" class="form-control" placeholder="id ..">
+    </div>
+    <div class="mb-3">
+      <label for="nome" class="form-label">NOME:</label>
+      <input type="text" [(ngModel)]="produto.nome" id="nome" class="form-control" placeholder="nome do produto ..">
+    </div>
+    <div class="mb-3">
+      <label for="preco" class="form-label">PREÇO:</label>
+      <input type="number" [(ngModel)]="produto.preco" id="preco" class="form-control" placeholder="preço ..">
+    </div>
+    <div class="mb-3">
 
-<div>
-  <label for="nome">NOME:</label>
-  <input type="text" [(ngModel)]="produto.nome" id="nome">
-  <br>
-  <label for="preco">PREÇO:</label>
-  <input type="number" [(ngModel)]="produto.preco" id="preco">
-
-  <button (click)="cadastrarProduto()">Cadastrar</button>
-</div>
-
-<div>
-  <p>{{produto | json}}</p>
+    </div>
+    <button (click)="cadastrarProduto()">Cadastrar</button>
+    <div>
+      <p>{{produto | json}}</p>
+    </div>
+  </div>
 </div>

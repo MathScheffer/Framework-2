@@ -1,7 +1,8 @@
 <div class="card">
-  <img class="img_card" src="/imagem.png" alt="imagem do produto">
-  <div class="container">
-    <h3>{{produto.nome}}</h3>
-    <p>R$ {{produto.preco}}</p>
+  <img class="card-img" src="/imagem.png" alt="imagem do produto">
+  <div class="card-body">
+    <!-- <h3 class="card-title">{{produto.nome}}</h3>
+    <p class="card-text">R$ {{produto.preco}}</p> -->
+    <ng-content></ng-content>
   </div>
 </div>
