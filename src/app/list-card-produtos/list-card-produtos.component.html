@@ -7,7 +7,8 @@
 
         <div conteudo>
           <h3 class="card-title">{{prod.nome}}</h3>
-          <p class="card-text">R$ {{prod.preco}}</p>
+          <p class="card-text">{{prod.preco | moeda}} </p>
+          <!-- <p class="card-text">{{prod.preco | moeda}} -->
           <p>Descrição: Um produto muito bom</p>
         </div>
       </app-card-produto>

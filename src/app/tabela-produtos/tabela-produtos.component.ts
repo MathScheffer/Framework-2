@@ -11,7 +11,7 @@ import { ProdutoService } from '../produto.service';
 export class TabelaProdutosComponent {
   /* @Input() listaProdutos: any[] = []; */
   listaProdutos: Produto[] = []
-
+  nomePesquisa?: string;
   constructor(private produtoService: ProdutoService){
     this.listaProdutos = produtoService.listar();
   }

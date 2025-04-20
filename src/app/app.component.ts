@@ -8,5 +8,4 @@ import { Component, Output } from '@angular/core';
 })
 export class AppComponent {
   title = 'Cadastro de produtos';
-
 }

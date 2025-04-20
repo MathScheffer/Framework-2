@@ -2,23 +2,33 @@
 
   <h3>Tabela de Produtos</h3>
 
-  <h4 *ngIf="listaProdutos.length ==0">
+  <div class="mb-3">
+    <label for="nomePesquisa" class="form-label">Pesquisar:</label>
+    <input type="string" [(ngModel)]="nomePesquisa" id="nomePesquisa" class="form-control" placeholder="Digite um nome para pesquisar...">
+  </div>
+
+  <h4 *ngIf="(listaProdutos | filtroPesquisa: nomePesquisa).length ==0">
     Não há produtos cadastrados!
   </h4>
 
-  <table class="table table-striped" *ngIf="listaProdutos.length > 0">
+  <table class="table table-striped" *ngIf="(listaProdutos | filtroPesquisa: nomePesquisa).length > 0">
     <thead>
       <tr>
         <th>ID</th>
         <th>NOME</th>
         <th>PRECO</th>
+        <th>MARCA</th>
+        <th>DATA DE VALIDADE</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let produto of listaProdutos">
+      <!-- <tr *ngFor="let produto of listaProdutos "> -->
+      <tr *ngFor="let produto of (listaProdutos | filtroPesquisa: nomePesquisa)">
         <td>{{produto.id}}</td>
         <td>{{produto.nome}}</td>
-        <td>{{produto.preco}}</td>
+        <td>{{produto.preco | moeda}}</td>
+        <td>{{produto.marca | uppercase}}</td>
+        <td>{{produto.dataValidade | date: 'dd/MM/YYYY'}}</td>
       </tr>
     </tbody>
   </table>
