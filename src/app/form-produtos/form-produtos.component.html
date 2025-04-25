@@ -11,20 +11,21 @@
     </div>
     <div class="mb-3">
       <label for="preco" class="form-label">PREÇO:</label>
-      <input type="number" [(ngModel)]="produto.preco" id="preco" class="form-control" placeholder="preço ..">
+      <input type="number" [(ngModel)]="produto.preco" id="preco" class="form-control" placeholder="preco ..">
     </div>
     <div class="mb-3">
-      <label for="marca" class="form-label">PREÇO:</label>
-      <input type="string" [(ngModel)]="produto.preco" id="marca" class="form-control" placeholder="marca ..">
+      <label for="marca" class="form-label">MARCA:</label>
+      <input type="string" [(ngModel)]="produto.marca" id="marca" class="form-control" placeholder="marca ..">
     </div>
     <div class="mb-3">
-      <label for="dataValidade" class="form-label">PREÇO:</label>
-      <input type="date" [(ngModel)]="produto.preco" id="dataValidade" class="form-control" placeholder="data de validade ..">
+      <label for="dataValidade" class="form-label">VALIDADE:</label>
+      <input type="date" [(ngModel)]="produto.dataValidade" id="dataValidade" class="form-control" placeholder="data de validade ..">
     </div>
     <div class="mb-3">
 
     </div>
-    <button (click)="cadastrarProduto()">Cadastrar</button>
+    <button class="btn btn-primary me-3" (click)="salvar()">{{botaoAcao}}</button>
+    <button class="btn btn-primary" (click)="voltar()">Voltar</button>
     <div>
       <p>{{produto | json}}</p>
     </div>

@@ -8,8 +8,10 @@ import { FormProdutosComponent } from './form-produtos/form-produtos.component';
 import { TabelaProdutosComponent } from './tabela-produtos/tabela-produtos.component';
 import { CardProdutoComponent } from './card-produto/card-produto.component';
 import { ListCardProdutosComponent } from './list-card-produtos/list-card-produtos.component';
-import { MoedaPipe } from './moeda.pipe';
-import { FiltroPesquisaPipe } from './filtro-pesquisa.pipe';
+import { MoedaPipe } from './pipes/moeda.pipe';
+import { FiltroPesquisaPipe } from './pipes/filtro-pesquisa.pipe';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,7 @@ import { FiltroPesquisaPipe } from './filtro-pesquisa.pipe';
     ListCardProdutosComponent,
     MoedaPipe,
     FiltroPesquisaPipe,
-    
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

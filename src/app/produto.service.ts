@@ -20,4 +20,25 @@ export class ProdutoService {
   listar():Produto[]{
     return this.produtos;
   }
+
+  buscarPorId(id?: number): Produto{
+    const produto = this.produtos.find(prod => prod.id == id);
+    return produto ? Object.assign({}, produto) : new Produto();
+  }
+
+  editar(id: number, produto: Produto) {
+    const i = this.getIndice(id);
+    if(i >= 0) {
+      this.produtos[i] = produto;
+    }
+  }
+  deletar(id?: number) {
+    const i = this.getIndice(id);
+    if(i >= 0){
+      this.produtos.splice(i, 1);
+    }
+  }
+  private getIndice(id?: number) {
+    return this.produtos.findIndex(prod => prod.id == id);
+  }
 }
