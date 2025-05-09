@@ -1,0 +1,32 @@
+{
+  "produtos": [
+    {
+      "id": "1",
+      "nome": "Banana",
+      "preco": 10,
+      "marca": "marca 2",
+      "dataValidade": "2025-04-22"
+    },
+    {
+      "id": "2",
+      "nome": "Uva",
+      "preco": 10,
+      "marca": "marca 1",
+      "dataValidade": "2025-04-22"
+    },
+    {
+      "id": "3",
+      "nome": "Limao",
+      "preco": 5,
+      "marca": "marca 1",
+      "dataValidade": "2025-04-22"
+    },
+    {
+      "id": 4,
+      "nome": "teste",
+      "preco": 13,
+      "marca": "marca 1",
+      "dataValidade": "2025-05-30"
+    }
+  ]
+}

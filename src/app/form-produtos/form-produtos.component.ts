@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Produto } from '../produto';
 import { ProdutoService } from '../produto.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProdutoApiService } from '../produto-api.service';
 
 @Component({
   selector: 'app-form-produtos',
@@ -15,13 +16,21 @@ export class FormProdutosComponent {
   id?: number;
   botaoAcao = "Cadastrar";
 
-  constructor(private produtoService: ProdutoService, private route: ActivatedRoute, private router: Router){
+  constructor(private produtoService: ProdutoService,
+    private route: ActivatedRoute, 
+    private router: Router,
+    private produtoApiService: ProdutoApiService
+){
+      
     this.listaProdutos = produtoService.listar();
     this.id = parseInt(this.route.snapshot.params['id']);
     
     if(this.id){
       this.botaoAcao = "Editar";
-      this.produto = produtoService.buscarPorId(this.id);
+      //this.produto = produtoService.buscarPorId(this.id);
+      this.produtoApiService.buscarPorId(this.id).subscribe(prod => {
+        this.produto = prod;
+      })
     }
   }
   /* @Input()  listaProdutos: Produto[] = [];*/
@@ -32,9 +41,12 @@ export class FormProdutosComponent {
 
   salvar = () => {
     if(this.id){
-      this.produtoService.editar(this.id, this.produto);
-      this.voltar();
-    }else{
+      //this.produtoService.editar(this.id, this.produto);
+      this.produtoApiService.editar(this.id, this.produto).subscribe(prod => {
+        alert(`Produto editado com sucesso!`);
+        this.voltar();
+      })
+    }else{//cadastrar
       /*     let id = this.listaProdutos.length > 0 ? this.listaProdutos[this.listaProdutos.length - 1].id?? + 1 : 1; */
       let id = (this.listaProdutos[this.listaProdutos.length - 1]?.id ?? 0) + 1;
       this.produto.id = id;
@@ -46,8 +58,12 @@ export class FormProdutosComponent {
         */
         //Podemos substituir o input e output pela função do service, mantendo o principio da DI:
         console.log(this.produto)
-        this.produtoService.addProduto(this.produto);
+        //this.produtoService.addProduto(this.produto);
+        this.produtoApiService.inserir(this.produto).subscribe(prod => {
+          alert(`Produto ${prod.nome} adicionado com sucesso!`);
+          
         this.produto = new Produto();
+        })
       }
     }
   }

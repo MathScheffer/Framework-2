@@ -11,6 +11,7 @@ import { ListCardProdutosComponent } from './list-card-produtos/list-card-produt
 import { MoedaPipe } from './pipes/moeda.pipe';
 import { FiltroPesquisaPipe } from './pipes/filtro-pesquisa.pipe';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  //cria uma espécie de service
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
